@@ -7,7 +7,7 @@ function getSummary(req, res) {
     BillingCycle.aggregate({
         $project: {
             credit: {
-                $sum: "$credit.value"
+                $sum: "$credits.value"
             },
             debt: {
                 $sum: "$debts.value"
