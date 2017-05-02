@@ -10,6 +10,14 @@
     function BillingCycleController($http, msgs) {
         const vm = this
         const url = `http://localhost:3003/api/billingCycles`
+
+        vm.refresh = function () {
+            $http.get(url).then(function (response) {                
+                vm.billingCycle = { credits: [{}], debts: [{}] }
+                vm.billingCycles = response.data                
+            })
+        }
+
         vm.create = function () {
             $http.post(url, vm.BillingCycle).then(function (response) {
                 msgs.addSuccess('Operação realizada com sucesso!!')
@@ -17,5 +25,7 @@
                 msgs.addError(response.data.errors)
             })
         }
+
+        vm.refresh()
     }
 })()
