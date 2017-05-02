@@ -1,3 +1,3 @@
 # CursoFramesWeb
 
-Curso de Mongo, Express, Angular e Node ministrado por Leonardo Leitão
+Curso de Mongo, Express, AngularJS e Node ministrado por Leonardo Leitão
