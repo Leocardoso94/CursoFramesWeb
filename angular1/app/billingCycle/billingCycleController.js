@@ -1,20 +1,20 @@
 (function () {
     angular.module('primeiraApp').controller('BillingCycleCtrl', [
         '$http',
-        //'$location',
         'msgs',
-        //   'tabs',
+        'tabs',
         BillingCycleController
     ])
 
-    function BillingCycleController($http, msgs) {
+    function BillingCycleController($http, msgs, tabs) {
         const vm = this
         const url = `http://localhost:3003/api/billingCycles`
 
         vm.refresh = function () {
-            $http.get(url).then(function (response) {                
+            $http.get(url).then(function (response) {
                 vm.billingCycle = { credits: [{}], debts: [{}] }
-                vm.billingCycles = response.data                
+                vm.billingCycles = response.data
+                tabs.show(vm, { tabList: true, tabCreate: true })
             })
         }
 
