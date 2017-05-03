@@ -16,7 +16,6 @@
                 vm.billingCycles = response.data
                 tabs.show(vm, { tabList: true, tabCreate: true })
             })
-            console.log(vm)
         }
 
         vm.create = function () {
